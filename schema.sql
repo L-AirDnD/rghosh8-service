@@ -22,12 +22,11 @@ CREATE TABLE things_to_do (
   rating INTEGER
 );
 
-		
-CREATE TABLE rooms (
-  id INTEGER AUTO_INCREMENT PRIMARY KEY,
-  roomname CHAR(50)
-);
+/* 
 
+This will be useful for future integration. 
 
 ALTER TABLE listing ADD FOREIGN KEY (offering) REFERENCES offering (id);
-ALTER TABLE event ADD FOREIGN KEY (room) REFERENCES rooms (id);
+ALTER TABLE event ADD FOREIGN KEY (room) REFERENCES rooms (id); 
+
+*/
