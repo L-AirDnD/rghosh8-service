@@ -10,7 +10,8 @@ CREATE TABLE similar_listing (
   listingtype CHAR(100),
   caption CHAR(200),
   price INTEGER,
-  rating INTEGER
+  rating INTEGER,
+  offeringID INTEGER
 );
 
 CREATE TABLE things_to_do (
@@ -19,7 +20,8 @@ CREATE TABLE things_to_do (
   eventtype CHAR(100),
   caption CHAR(200),
   price INTEGER,
-  rating INTEGER
+  rating INTEGER,
+  offeringID INTEGER
 );
 
 CREATE TABLE offering (
