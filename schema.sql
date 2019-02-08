@@ -5,7 +5,7 @@ CREATE DATABASE ads;
 USE ads;
 
 CREATE TABLE similar_listing (
-  objectID INTEGER AUTO_INCREMENT PRIMARY KEY,
+  similarListingID INTEGER AUTO_INCREMENT PRIMARY KEY,
   photoID INTEGER,
   listingtype CHAR(100),
   caption CHAR(200),
@@ -14,7 +14,7 @@ CREATE TABLE similar_listing (
 );
 
 CREATE TABLE things_to_do (
-  objectID INTEGER AUTO_INCREMENT PRIMARY KEY,
+  thingsToDoID INTEGER AUTO_INCREMENT PRIMARY KEY,
   photoID INTEGER,
   eventtype CHAR(100),
   caption CHAR(200),
@@ -22,11 +22,17 @@ CREATE TABLE things_to_do (
   rating INTEGER
 );
 
-/* 
+CREATE TABLE offering (
+  offeringID INTEGER AUTO_INCREMENT PRIMARY KEY,
+  caption CHAR(200)
+);
 
-This will be useful for future integration. 
 
-ALTER TABLE listing ADD FOREIGN KEY (offering) REFERENCES offering (id);
-ALTER TABLE event ADD FOREIGN KEY (room) REFERENCES rooms (id); 
+ALTER TABLE similar_listing ADD FOREIGN KEY (offeringID) REFERENCES offering (offeringID);
+ALTER TABLE things_to_do ADD FOREIGN KEY (offeringID) REFERENCES offering (offeringID); 
 
-*/
+
+
+
+
+
