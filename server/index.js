@@ -1,5 +1,8 @@
 const express = require('express');
 const path = require("path");
+const db = require('../database/seeder.js');
+console.log(db);
+
 // Create an Express application. Express is a Nodejs web application framework. 
 const app = express();
 const PORT = 3004;
@@ -10,10 +13,27 @@ app.use(bodyParser.json());
 //use deep parsing for nested object handling
 app.use(bodyParser.urlencoded({extended: true}));
 
-
 const pathToAssets = path.join(__dirname, '../client/dist');
 const staticAssetsMiddleware = express.static(pathToAssets);
 app.use(staticAssetsMiddleware);
+
+app.get('/api/getSimilarListing', (req, res) => {
+  db.getSimilarListing((error, results, fields) => {
+    if (error) {
+      console.log(error);
+    }
+    res.send(results);
+  })
+});
+
+app.get('/api/getThingsToDo', (req, res) => {
+  db.getThingsToDo((error, results, fields) => {
+    if (error) {
+      console.log(error);
+    }
+    res.send(results);
+  })
+});
 
 //Run this async function when listening event happens
 let server = app.listen(PORT, () => {
