@@ -1,11 +1,12 @@
 const express = require('express');
 const path = require("path");
-const db = require('../database/seeder.js');
+const db = require('../database/indexDB.js');
+console.log(db.getSimilarListing);
 
 
 // Create an Express application. Express is a Nodejs web application framework. 
 const app = express();
-const PORT = 3004;
+const PORT = process.env.PORT || 3004;
 //body-parser is body parsing middleware. 
 const bodyParser = require('body-parser');
 //JSON will be used
