@@ -1,22 +1,21 @@
 const mysql = require('mysql');
 const faker = require('faker');
-console.log(faker.finance.amount(1, 5));
 const config = require('./config.js');
 const db = mysql.createConnection(config);
-const MAX_Record = 100;
+const maxRecord = 100;
 
-const randomNumberGenerator = (max) => {
+const generateRandomNumber = (max) => {
   return Math.floor(Math.random() * Math.floor(max));
 }
 
-const tableGenerator = (table, generator, recordNum) => {
+const generateTable = (table, generator, recordNum) => {
   for (let index = 0; index < recordNum; index++) {
     table.push(generator());
   }
   return table;
 }
 
-const similarListingGenerator = () => {
+const generateSimilarListing = () => {
   return [
     faker.image.avatar(),
     faker.lorem.sentence(),
@@ -27,7 +26,7 @@ const similarListingGenerator = () => {
   ]
 }
 
-const thingsToDoGenerator = () => {
+const generateThingsToDo = () => {
   return [
     faker.image.avatar(),
     faker.lorem.sentence(),
@@ -48,9 +47,9 @@ const thingsToDoGenerator = () => {
 /*---------------------------------------------------------*/
 /*                    SEED DATA                      */
 /*---------------------------------------------------------*/
-const similarListing = tableGenerator([], similarListingGenerator, MAX_Record);
-const thingsToDo = tableGenerator([], thingsToDoGenerator, MAX_Record);
-//const offering = tableGenerator([], offeringGenerator, MAX_Record);
+const similarListing = generateTable([], generateSimilarListing, maxRecord);
+const thingsToDo = generateTable([], generateThingsToDo, maxRecord);
+//const offering = tableGenerator([], offeringGenerator, maxRecord);
 
 /*---------------------------------------------------------*/
 /*                     DATA INSERTION                      */

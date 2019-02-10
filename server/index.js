@@ -1,7 +1,7 @@
 const express = require('express');
 const path = require("path");
 const db = require('../database/seeder.js');
-console.log(db);
+
 
 // Create an Express application. Express is a Nodejs web application framework. 
 const app = express();
