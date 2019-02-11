@@ -1,8 +1,6 @@
 const path = require("path");
 const pathToDatabase = path.join(__dirname, '../database/indexDB.js')
 const db = require(pathToDatabase);
-console.log(db);
-
 
 const getSimilarListing = (req, res) => {
   db.getSimilarListing((error, results, fields) => {
@@ -18,6 +16,8 @@ const getThingsToDo = (req, res) => {
   })
 };
 
-module.exports.db=db;
-module.exports.getSimilarListing = getSimilarListing;
-module.exports.getThingsToDo = getThingsToDo;
+module.exports = {
+  db,
+  getSimilarListing,
+  getThingsToDo,
+};
