@@ -11,7 +11,7 @@ const generateTable = (table, generator, recordNum) => {
   return table;
 }
 
-const offeringGenerator = () => {
+const generateOffering = () => {
   return [
     faker.lorem.sentence(3)
   ]
@@ -44,7 +44,7 @@ const generateThingsToDo = () => {
 /*---------------------------------------------------------*/
 const similarListing = generateTable([], generateSimilarListing, maxRecord);
 const thingsToDo = generateTable([], generateThingsToDo, maxRecord);
-const offering = generateTable([], offeringGenerator, maxRecord);
+const offering = generateTable([], generateOffering, maxRecord);
 
 /*---------------------------------------------------------*/
 /*                     DATA INSERTION                      */
@@ -52,14 +52,14 @@ const offering = generateTable([], offeringGenerator, maxRecord);
 
 const isertSimilarListingSql = `
   INSERT INTO similar_listing (
-    photoID, listingtype, caption, price, rating
+    photoID, genCaption, specCaption, price, rating
   )
   VALUES (?, ?, ?, ?, ?)
 `;
 
 const insertThingsToDoSql = `
   INSERT INTO things_to_do (
-    photoID, eventtype, caption, price, rating
+    photoID, genCaption, specCaption, price, rating
   )
   VALUES (?, ?, ?, ?, ?)
 `;
