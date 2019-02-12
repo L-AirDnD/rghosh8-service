@@ -2,9 +2,11 @@ const path = require('path');
 const SRC_DIR = path.join(__dirname, './client/src');
 const DIST_DIR = path.join(__dirname, './client/dist');
 
-/*module.exports is an object that the current module returns 
+/*
+module.exports is an object that the current module returns 
 when 
-it is "required" in another program or module.*/
+it is "required" in another program or module.
+*/
 
 module.exports = {
   entry:`${SRC_DIR}/index.jsx`,
