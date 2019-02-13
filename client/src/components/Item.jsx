@@ -1,5 +1,8 @@
 import React from 'react';
 import styled from 'styled-components';
+import stars from './Assets/stars.jpeg';
+console.log(stars);
+
 
 const Card = styled.li`
 	list-style-type: none;
@@ -47,14 +50,37 @@ const Rating = styled.h1`
   font-family: Circular,-apple-system,BlinkMacSystemFont,Roboto,Helvetica Neue,sans-serif !important;
 `;
 
+const LeadImage = styled.img `
+  width: 100%;
+  border-radius: 3px;
+`;
+
+const StarImage = styled.img `
+  max-width:  20%;
+  max-height: 20%;
+  font-size: 9px !important;
+  margin-right: 1px !important;
+  display: inline-block !important;
+`;
+
 const Item = (props) => (
   <Card>
-    <div><img src = {props.list.photoID} /></div>
-    <GenCaption>{props.list.genCaption.split(' ').slice(0,4).join(' ')}</GenCaption>
-    <SpecCaption>{props.list.specCaption.split(' ').slice(0,5).join(' ')}</SpecCaption>
-    <Price> ${props.list.price}</Price>
+    <div>
+      <LeadImage 
+        src = {props.list.photoID} 
+      />
+    </div>
+    <GenCaption>
+      <span>{props.list.genCaption.split(' ').slice(0,2).join(' ')} . </span>
+      <span>{props.list.genCaption.split(' ').slice(2,4).join(' ')}</span>
+    </GenCaption>
+    <SpecCaption>{props.list.specCaption.split(' ').slice(0,4).join(' ')}</SpecCaption>
+    <Price> ${props.list.price} </Price>
     <Rating>
-      <span>{props.list.rating} stars </span><span>{props.list.numReviews} reviews</span> 
+      <StarImage
+        src = {stars} 
+      />
+      <span>{props.list.numReviews} reviews</span> 
     </Rating>
   </Card>
 )
