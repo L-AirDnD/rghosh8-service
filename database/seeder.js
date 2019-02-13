@@ -21,7 +21,7 @@ const generateSimilarListing = () => {
   return [
     faker.image.avatar(),
     faker.lorem.sentence(),
-    faker.lorem.sentence(3),
+    faker.lorem.sentence(),
     faker.finance.amount(50, 500),
     faker.random.number({ min: 1, max: 5 }),
     faker.random.number(1000),
@@ -34,11 +34,11 @@ const generateThingsToDo = () => {
   return [
     faker.image.avatar(),
     faker.lorem.sentence(),
-    faker.lorem.sentence(3),
+    faker.lorem.sentence(),
     faker.finance.amount(50, 500),
     faker.random.number({ min: 1, max: 5 }),
     faker.random.number(1000),
-    
+
     faker.random.number(100),
   ]
 }

@@ -1,14 +1,62 @@
 import React from 'react';
+import styled from 'styled-components';
+
+const Card = styled.li`
+	list-style-type: none;
+  padding: 5px;
+  border: 1px solid red;
+  margin: 5px;
+  width: 30%;
+`;
+
+const GenCaption = styled.h1`
+  font-size: 12px !important;
+  font-weight: 800 !important;
+  line-height: 1.3333333333333333em !important;
+  width: 75%;
+  color: #714e33;
+  font-family: Circular,-apple-system,BlinkMacSystemFont,Roboto,Helvetica Neue,sans-serif !important;
+`;
+
+const SpecCaption = styled.h1`
+  font-size: 16px !important;
+  font-weight: 800 !important;
+  line-height: 1.375em !important;
+  word-wrap: break-word !important;
+  width: 75%;
+  color: #484848 !important;
+  font-family: Circular,-apple-system,BlinkMacSystemFont,Roboto,Helvetica Neue,sans-serif !important;
+`;
+
+const Price = styled.h1`
+  font-size: 14px !important;
+  font-weight: 400 !important;
+  line-height: 1.2857142857142858em !important;
+  width: 30%;
+  color: #484848 !important;
+  font-family: Circular,-apple-system,BlinkMacSystemFont,Roboto,Helvetica Neue,sans-serif !important;
+`;
+
+const Rating = styled.h1`
+  font-size: 12px !important;
+  font-weight: 400 !important;
+  line-height: 1.33333em !important;
+  width: 50%;
+  color: #484848 !important;
+  overflow-wrap: break-word !important;
+  font-family: Circular,-apple-system,BlinkMacSystemFont,Roboto,Helvetica Neue,sans-serif !important;
+`;
 
 const Item = (props) => (
-  <li>
+  <Card>
     <div><img src = {props.list.photoID} /></div>
-    <div>{props.list.genCaption}</div>
-    <div>{props.list.specCaption}</div>
-    <div>{props.list.price}</div>
-    <div>{props.list.rating}</div>
-    <div>{props.list.numReviews}</div>
-  </li>
+    <GenCaption>{props.list.genCaption.split(' ').slice(0,4).join(' ')}</GenCaption>
+    <SpecCaption>{props.list.specCaption.split(' ').slice(0,5).join(' ')}</SpecCaption>
+    <Price> ${props.list.price}</Price>
+    <Rating>
+      <span>{props.list.rating} stars </span><span>{props.list.numReviews} reviews</span> 
+    </Rating>
+  </Card>
 )
 
 export default Item;
