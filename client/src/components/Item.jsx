@@ -7,6 +7,7 @@ const Item = (props) => (
     <div>{props.list.specCaption}</div>
     <div>{props.list.price}</div>
     <div>{props.list.rating}</div>
+    <div>{props.list.numReviews}</div>
   </li>
 )
 

@@ -18,6 +18,7 @@ CREATE TABLE similar_listing (
   specCaption VARCHAR(200),
   price VARCHAR(25),
   rating INTEGER,
+  numReviews INTEGER,
   offeringID INTEGER,
 
   PRIMARY KEY (similarListingID),
@@ -30,7 +31,8 @@ CREATE TABLE things_to_do (
   genCaption VARCHAR(100),
   specCaption VARCHAR(200),
   price VARCHAR(25),
-  rating INTEGER, 
+  rating INTEGER,
+  numReviews INTEGER, 
   offeringID INTEGER,
 
   PRIMARY KEY (thingsToDoID),

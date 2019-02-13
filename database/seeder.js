@@ -24,7 +24,9 @@ const generateSimilarListing = () => {
     faker.lorem.sentence(3),
     faker.finance.amount(50, 500),
     faker.random.number({ min: 1, max: 5 }),
-    faker.random.number(100)
+    faker.random.number(1000),
+
+    faker.random.number(100),
   ]
 }
 
@@ -35,7 +37,9 @@ const generateThingsToDo = () => {
     faker.lorem.sentence(3),
     faker.finance.amount(50, 500),
     faker.random.number({ min: 1, max: 5 }),
-    faker.random.number(100)
+    faker.random.number(1000),
+    
+    faker.random.number(100),
   ]
 }
 
@@ -52,16 +56,16 @@ const offering = generateTable([], generateOffering, maxRecord);
 
 const isertSimilarListingSql = `
   INSERT INTO similar_listing (
-    photoID, genCaption, specCaption, price, rating
+    photoID, genCaption, specCaption, price, rating, numReviews
   )
-  VALUES (?, ?, ?, ?, ?)
+  VALUES (?, ?, ?, ?, ?, ?)
 `;
 
 const insertThingsToDoSql = `
   INSERT INTO things_to_do (
-    photoID, genCaption, specCaption, price, rating
+    photoID, genCaption, specCaption, price, rating, numReviews
   )
-  VALUES (?, ?, ?, ?, ?)
+  VALUES (?, ?, ?, ?, ?, ?)
 `;
 
 const insertOfferingSql = `INSERT INTO offering (caption) VALUES (?)`;
