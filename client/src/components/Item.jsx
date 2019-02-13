@@ -2,7 +2,7 @@ import React from 'react';
 
 const Item = (props) => (
   <li>
-    <div>{props.list.photoID}</div>
+    <div><img src = {props.list.photoID} /></div>
     <div>{props.list.genCaption}</div>
     <div>{props.list.specCaption}</div>
     <div>{props.list.price}</div>
