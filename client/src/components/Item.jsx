@@ -1,15 +1,14 @@
 import React from 'react';
 import styled from 'styled-components';
 import stars from './Assets/stars.jpeg';
-console.log(stars);
-
 
 const Card = styled.li`
-	list-style-type: none;
+  list-style-type: none;
   padding: 5px;
   border: 1px solid red;
   margin: 5px;
   width: 30%;
+  float: left;
 `;
 
 const GenCaption = styled.h1`

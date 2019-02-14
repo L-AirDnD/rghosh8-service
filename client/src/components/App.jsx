@@ -47,8 +47,10 @@ class App extends React.Component {
       <div>
         <h1>Similar Listing</h1>
         <List table={this.state.similarListingTable} />
-        <h1>Things To Do</h1>
-        <List table={this.state.thingsToDoTable} />
+        <div>
+          <h1>Things To Do</h1>
+          <List table={this.state.thingsToDoTable} />
+        </div>
       </div>
     );
   }
