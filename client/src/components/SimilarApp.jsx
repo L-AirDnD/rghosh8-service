@@ -2,20 +2,16 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 
 import getSimilarListing from '../lib/getSimilarListing.js';
-import getThingsToDo from '../lib/getThingsToDo.js';
-
-import Item from './Item.jsx';
-import List from './List.jsx';
+import List from './SimilarList.jsx';
+import H1 from '../styles/SimilarApp.jsx';
 
 
-class App extends React.Component {
+class SimilarApp extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
       similarListingTable: [],
-      thingsToDoTable: [],
       similarListingID: 0,
-      thingsToDoID:0,
     };
   }
 
@@ -30,30 +26,16 @@ class App extends React.Component {
       .catch((error) => {
         console.log(error);
       });
-    getThingsToDo()
-      .then((toDoData) => {
-        this.setState({
-          thingsToDoTable: toDoData.data,
-          thingsToDoID: toDoData.data.length,
-        });
-      })
-      .catch((error) => {
-        console.log(error);
-      });
   }
 
   render() {
     return (
       <div>
-        <h1>Similar Listing</h1>
+        <H1>Similar listings</H1>
         <List table={this.state.similarListingTable} />
-        <div>
-          <h1>Things To Do</h1>
-          <List table={this.state.thingsToDoTable} />
-        </div>
       </div>
     );
   }
 }
 
-export default App;
+export default SimilarApp;
